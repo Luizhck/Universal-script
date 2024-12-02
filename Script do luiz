@@ -112,7 +112,7 @@ end
   	end    
 })
 Tab:AddButton({
-	Name = "Button!",
+	Name = "parar",
 	Callback = function()
       	 far = false
   	end    
