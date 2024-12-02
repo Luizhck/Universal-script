@@ -1,0 +1,161 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "animal simulator", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+	Name = "animal simulator",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Subir level",
+	Callback = function()
+      		coins = true
+while true do
+  wait(0)
+  if coins == true then
+  game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
+  game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
+  game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
+  end
+end
+  	end    
+})
+Tab:AddButton({
+	Name = "parar",
+	Callback = function()
+	  coins = false
+  	end    
+})
+Tab:AddButton({
+	Name = "orbita os players",
+	Callback = function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Orbit%20GUI"))()
+  	end    
+})
+--brokhaven rp--
+
+local Tab = Window:MakeTab({
+	Name = "brokhaven",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "cliqur aqui",
+	Callback = function()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/BLACKSCRIPTSRBX/BrookhavenBlackScriptHubV0.1/refs/heads/main/BrookhavenBlackScriptHubV0.1.lua"))()
+  	end    
+})
+--poder de admin --
+
+local Tab = Window:MakeTab({
+	Name = "admins",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "admin1",
+	Callback = function()
+	  str_srce = "14682300022" loadstring(game:GetObjects("rbxassetid://"..str_srce)[1].Source)()
+  	end    
+})
+Tab:AddButton({
+	Name = "aviator hub",
+	Callback = function()
+	  loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
+  	end    
+})
+--muscle simulator--
+
+local Tab = Window:MakeTab({
+	Name = "muscle simulator",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "farm",
+	Callback = function()
+      		local cliq = true
+      		while true do
+      		wait(0)
+      		if cliq == true then
+      		local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Weight
+}
+
+game:GetService("ReplicatedStorage").Events.WeightMuscle:FireServer(unpack(args))
+       end
+  	end
+  	end    
+})
+Tab:AddButton({
+	Name = "auto rebirth",
+	Callback = function()
+       while true do
+       wait(0)
+       local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Weight
+}
+
+game:GetService("ReplicatedStorage").Events.WeightMuscle:FireServer(unpack(args))
+end
+  	end    
+})
+Tab:AddButton({
+	Name = "farm na barra",
+	Callback = function()
+      		local far = true
+      		while true do
+      		wait(0)
+      		if far == true then
+      		game:GetService("ReplicatedStorage").Events.MuscleEvent:FireServer()
+end
+  	end
+  	end    
+})
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      	 far = false
+  	end    
+})
+--Slap Legends--
+
+local Tab = Window:MakeTab({
+	Name = "Slap Legends",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Farma",
+	Callback = function()
+      		local dam = true
+
+if dam == true then
+while true do
+wait(0)
+local args = {
+    [1] = workspace.Weights.lvl1.Part.LiftProx
+}
+
+game:GetService("ReplicatedStorage").Events.Lift:FireServer(unpack(args))
+end
+end
+  	end    
+})
+Tab:AddButton({
+	Name = "parar",
+	Callback = function()
+      		dam = false
+  	end    
+})
+--luck block
+local Tab = Window:MakeTab({
+	Name = "luck block",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Pegar arma",
+	Callback = function()
+      	game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
+end
+})
