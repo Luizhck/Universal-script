@@ -73,7 +73,7 @@ local Tab = Window:MakeTab({
 Tab:AddButton({
 	Name = "farm",
 	Callback = function()
-      		local cliq = true
+      		cliq = true
       		while true do
       		wait(0)
       		if cliq == true then
@@ -102,7 +102,7 @@ end
 Tab:AddButton({
 	Name = "farm na barra",
 	Callback = function()
-      		local far = true
+      		far = true
       		while true do
       		wait(0)
       		if far == true then
@@ -127,24 +127,25 @@ local Tab = Window:MakeTab({
 Tab:AddButton({
 	Name = "Farma",
 	Callback = function()
-      		local dam = true
+      		 dam = true
 
-if dam == true then
 while true do
 wait(0)
+if dam == true then
 local args = {
-    [1] = workspace.Weights.lvl1.Part.LiftProx
+    [1] = workspace.Weights.lvl16.Part.LiftProx
 }
 
 game:GetService("ReplicatedStorage").Events.Lift:FireServer(unpack(args))
 end
 end
-  	end    
+  	end  
 })
 Tab:AddButton({
 	Name = "parar",
 	Callback = function()
-      		dam = false
+      dam = false
+      		
   	end    
 })
 --luck block
