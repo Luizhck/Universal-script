@@ -112,7 +112,7 @@ end
   	end    
 })
 Tab:AddButton({
-	Name = "parar",
+	Name = "Button!",
 	Callback = function()
       	 far = false
   	end    
@@ -159,4 +159,36 @@ Tab:AddButton({
 	Callback = function()
       	game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
 end
+})
+
+--academia de luta
+
+local Tab = Window:MakeTab({
+	Name = "academia de luta",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "farma",
+	Callback = function()
+      		rogue = true
+
+while true do
+wait(00000000.1)
+if rogue == true then
+local args = {
+    [1] = "bar",
+    [2] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Gym:FireServer(unpack(args))
+end
+end
+  	end    
+})
+Tab:AddButton({
+	Name = "parar",
+	Callback = function()
+      		rogue = false
+  	end    
 })
