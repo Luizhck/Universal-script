@@ -182,6 +182,13 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events.Gym:FireServer(unpack(args))
+local args = {
+    [1] = "supin",
+    [2] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("ReplicatedStorage").Events.Gym:FireServer(unpack(args))
+
 end
 end
   	end    
