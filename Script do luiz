@@ -208,7 +208,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 Tab:AddButton({
-	Name = "Button!",
+	Name = "dex",
 	Callback = function()
       		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Keyless-Mobile-Dex-Reupload-22707"))()
   	end    
