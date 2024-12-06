@@ -199,3 +199,17 @@ Tab:AddButton({
       		rogue = false
   	end    
 })
+
+--script helper --
+
+local Tab = Window:MakeTab({
+	Name = "script helper",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Keyless-Mobile-Dex-Reupload-22707"))()
+  	end    
+})
