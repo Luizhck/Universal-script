@@ -1,36 +1,32 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "animal simulator", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "animal simulator", HidePremium = false, SaveConfig = true, ConfigFolder = "white"})
 local Tab = Window:MakeTab({
 	Name = "animal simulator",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-Tab:AddButton({
-	Name = "Subir level",
-	Callback = function()
-      		coins = true
-while true do
-  wait(0)
-  if coins == true then
-  game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
-  game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
-  game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
-  end
-end
-  	end    
+Tab:AddToggle({
+	Name = "farma",
+	Default = false,
+	Callback = function(Value)
+		if Value == true then
+		while true do
+		wait(0.1)
+		game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
+		end
+		else 
+		Value = false
+		end
+	end 
 })
-Tab:AddButton({
-	Name = "parar",
-	Callback = function()
-	  coins = false
-  	end    
-})
+
 Tab:AddButton({
 	Name = "orbita os players",
 	Callback = function()
 	  loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Orbit%20GUI"))()
   	end    
 })
+
 --brokhaven rp--
 
 local Tab = Window:MakeTab({
@@ -213,3 +209,12 @@ Tab:AddButton({
       		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Keyless-Mobile-Dex-Reupload-22707"))()
   	end    
 })
+Tab:AddButton({
+	Name = "hitbox",
+	Callback = function()
+      		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Universal-Hitbox-Expander-16568"))()
+  	end    
+})
+
+
+--
