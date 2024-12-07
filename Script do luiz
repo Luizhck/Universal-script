@@ -5,21 +5,24 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-Tab:AddToggle({
+Tab:AddButton({
 	Name = "farma",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-		while true do
-		wait(0.1)
-		game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
+	Callback = function()
+     lock = true
+    while true do
+    wait(0.1)
+     if lock == true then
+     game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
 		end
-		else 
-		Value = false
-		end
-	end 
+  	end
+  	end    
 })
-
+Tab:AddButton({
+	Name = "parar",
+	Callback = function()
+	  lock = false
+  	end    
+})
 Tab:AddButton({
 	Name = "orbita os players",
 	Callback = function()
@@ -217,4 +220,4 @@ Tab:AddButton({
 })
 
 
---
+--  
