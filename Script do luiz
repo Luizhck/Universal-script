@@ -51,7 +51,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 Tab:AddButton({
-	Name = "admin1",
+	Name = "admin1(script bem bosta)",
 	Callback = function()
 	  str_srce = "14682300022" loadstring(game:GetObjects("rbxassetid://"..str_srce)[1].Source)()
   	end    
@@ -60,6 +60,12 @@ Tab:AddButton({
 	Name = "aviator hub",
 	Callback = function()
 	  loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
+  	end    
+})
+Tab:AddButton({
+	Name = "Namelles admin",
+	Callback = function()
+	  loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Nameless-Admin-23304"))()
   	end    
 })
 --muscle simulator--
