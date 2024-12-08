@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Brabinho", HidePremium = false, SaveConfig = true, ConfigFolder = "white"})
+local Window = OrionLib:MakeWindow({Name = "✌️💲💯", HidePremium = false, SaveConfig = true, ConfigFolder = "white"})
 local Tab = Window:MakeTab({
 	Name = "animal simulator",
 	Icon = "rbxassetid://4483345998",
