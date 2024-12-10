@@ -40,7 +40,7 @@ local Tab = Window:MakeTab({
 Tab:AddButton({
 	Name = "cliqur aqui",
 	Callback = function()
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/BLACKSCRIPTSRBX/BrookhavenBlackScriptHubV0.1/refs/heads/main/BrookhavenBlackScriptHubV0.1.lua"))()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/Luizhck/Luizhck/refs/heads/main/Universal%20script"))()
   	end    
 })
 --poder de admin --
