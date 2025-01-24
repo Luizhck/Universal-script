@@ -1,233 +1,61 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "✌️💲💯", HidePremium = false, SaveConfig = true, ConfigFolder = "white"})
-local Tab = Window:MakeTab({
-	Name = "animal simulator",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Rayfield Example Window",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "ta 2",
+   LoadingSubtitle = "script do LR",
+   Theme = "DarkBlue", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = scripts, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
 })
-Tab:AddButton({
-	Name = "farma",
-	Callback = function()
-     lock = true
-    while true do
-    wait(0.1)
-     if lock == true then
+local Tab = Window:CreateTab("animal simulator", "rewind")
+local Button = Tab:CreateButton({
+   Name = "farm",
+   Callback = function()
+   while true do
+    wait(0.0)
      game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
-		end
-  	end
-  	end    
-})
-Tab:AddButton({
-	Name = "parar",
-	Callback = function()
-	  lock = false
-  	end    
-})
-Tab:AddButton({
-	Name = "orbita os players",
-	Callback = function()
-	  loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Orbit%20GUI"))()
-  	end    
-})
---poder de admin --
-
-local Tab = Window:MakeTab({
-	Name = "admins",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-Tab:AddButton({
-	Name = "admin1(script bem bosta)",
-	Callback = function()
-	  str_srce = "14682300022" loadstring(game:GetObjects("rbxassetid://"..str_srce)[1].Source)()
-  	end    
-})
-Tab:AddButton({
-	Name = "aviator hub",
-	Callback = function()
-	  loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
-  	end    
-})
-Tab:AddButton({
-	Name = "Namelles admin",
-	Callback = function()
-	  loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Nameless-Admin-23304"))()
-  	end 
-  	})   
-  	Tab:AddButton({
-	Name = "Rei hub!",
-	Callback = function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script'))()
-  	end    
-})
---muscle simulator--
-
-local Tab = Window:MakeTab({
-	Name = "muscle simulator",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-Tab:AddButton({
-	Name = "farm",
-	Callback = function()
-      		cliq = true
-      		while true do
-      		wait(0)
-      		if cliq == true then
-      		local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character.Weight
-}
-
-game:GetService("ReplicatedStorage").Events.WeightMuscle:FireServer(unpack(args))
-       end
-  	end
-  	end    
-})
-Tab:AddButton({
-	Name = "auto rebirth",
-	Callback = function()
-       while true do
-       wait(0)
-       local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character.Weight
-}
-
-game:GetService("ReplicatedStorage").Events.WeightMuscle:FireServer(unpack(args))
+ end
+ while true do
+ wait(0.0)
+ game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
 end
-  	end    
+   end,
 })
-Tab:AddButton({
-	Name = "farm na barra",
-	Callback = function()
-      		far = true
-      		while true do
-      		wait(0)
-      		if far == true then
-      		game:GetService("ReplicatedStorage").Events.MuscleEvent:FireServer()
-end
-  	end
-  	end    
+local Tab = Window:CreateTab("script helper", 4483362458) -- Title, Image
+local Button = Tab:CreateButton({
+   Name = "hitbox",
+   Callback = function()
+   loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Universal-Hitbox-Expander-16568"))()
+   end,
 })
-Tab:AddButton({
-	Name = "Button!",
-	Callback = function()
-      	 far = false
-  	end    
-})
---Slap Legends--
-
-local Tab = Window:MakeTab({
-	Name = "Slap Legends",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-Tab:AddButton({
-	Name = "Farma",
-	Callback = function()
-      		 dam = true
-
-while true do
-wait(0)
-if dam == true then
-local args = {
-    [1] = workspace.Weights.lvl16.Part.LiftProx
-}
-
-game:GetService("ReplicatedStorage").Events.Lift:FireServer(unpack(args))
-end
-end
-  	end  
-})
-Tab:AddButton({
-	Name = "parar",
-	Callback = function()
-      dam = false
-      		
-  	end    
-})
---luck block
-local Tab = Window:MakeTab({
-	Name = "luck block",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-Tab:AddButton({
-	Name = "Pegar arma",
-	Callback = function()
-      	game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
-end
-})
-
---academia de luta
-
-local Tab = Window:MakeTab({
-	Name = "academia de luta",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-Tab:AddButton({
-	Name = "farma",
-	Callback = function()
-      		rogue = true
-
-while true do
-wait(00000000.1)
-if rogue == true then
-local args = {
-    [1] = "bar",
-    [2] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Gym:FireServer(unpack(args))
-local args = {
-    [1] = "supin",
-    [2] = game:GetService("Players").LocalPlayer
-}
-
-game:GetService("ReplicatedStorage").Events.Gym:FireServer(unpack(args))
-
-end
-end
-  	end    
-})
-Tab:AddButton({
-	Name = "parar",
-	Callback = function()
-      		rogue = false
-  	end    
-})
-
---script helper --
-
-local Tab = Window:MakeTab({
-	Name = "script helper",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-Tab:AddButton({
-	Name = "dex",
-	Callback = function()
-      		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Keyless-Mobile-Dex-Reupload-22707"))()
-  	end    
-})
-Tab:AddButton({
-	Name = "hitbox",
-	Callback = function()
-      		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Universal-Hitbox-Expander-16568"))()
-  	end    
-})
-
-
-
--- brookhaven
-local Tab = Window:MakeTab({
-	Name = "brokhaven",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-Tab:AddButton({
-	Name = "cliqur aqui",
-	Callback = function()
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/Luizhck/Luizhck/refs/heads/main/Universal%20script"))()
-  	end    
+local Button = Tab:CreateButton({
+   Name = "Namelles",
+   Callback = function()
+   loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Nameless-Admin-23304"))()
+   end,
 })
