@@ -351,6 +351,233 @@ end
 end)
 createButton(playerTab, "fps +90", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Luizhck/Fps-booster/refs/heads/main/README.md"))()
+    createButton(playerTab, "fps +90", function()
+    -- Script para segurar duas armas no Prison Life
+-- Coloque no Auto Execute do seu executor
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+-- CONFIGURAÇÃO: Coloque aqui os nomes EXATOS das armas que você quer usar
+local WEAPON_SELECTION = {
+    "Remington 870", -- Primeira arma
+    "M4A1" -- Segunda arma
+    -- Adicione mais armas se quiser
+}
+
+-- Variável para controlar se o script está pausado
+local scriptPausado = false
+
+-- Criar a interface gráfica
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "DualWeaponsGUI"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Name = "MainFrame"
+mainFrame.Size = UDim2.new(0, 200, 0, 120)
+mainFrame.Position = UDim2.new(0, 10, 0, 10)
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+mainFrame.BorderSizePixel = 1
+mainFrame.BorderColor3 = Color3.fromRGB(100, 100, 100)
+mainFrame.Active = true
+mainFrame.Draggable = true
+mainFrame.Parent = screenGui
+
+-- Título
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Name = "TitleLabel"
+titleLabel.Size = UDim2.new(1, 0, 0, 25)
+titleLabel.Position = UDim2.new(0, 0, 0, 0)
+titleLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+titleLabel.Text = "Dual Weapons v1.0"
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.Font = Enum.Font.GothamBold
+titleLabel.TextSize = 14
+titleLabel.Parent = mainFrame
+
+-- Botão minimizar
+local minimizeButton = Instance.new("TextButton")
+minimizeButton.Name = "MinimizeButton"
+minimizeButton.Size = UDim2.new(0, 20, 0, 20)
+minimizeButton.Position = UDim2.new(1, -25, 0, 2)
+minimizeButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+minimizeButton.Text = "_"
+minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeButton.Font = Enum.Font.GothamBold
+minimizeButton.TextSize = 14
+minimizeButton.Parent = mainFrame
+
+-- Botão pausar/retomar
+local toggleButton = Instance.new("TextButton")
+toggleButton.Name = "ToggleButton"
+toggleButton.Size = UDim2.new(0, 180, 0, 40)
+toggleButton.Position = UDim2.new(0, 10, 0, 35)
+toggleButton.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+toggleButton.Text = "SCRIPT ATIVO"
+toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+toggleButton.Font = Enum.Font.GothamBold
+toggleButton.TextSize = 14
+toggleButton.Parent = mainFrame
+
+-- Status label
+local statusLabel = Instance.new("TextLabel")
+statusLabel.Name = "StatusLabel"
+statusLabel.Size = UDim2.new(1, -20, 0, 30)
+statusLabel.Position = UDim2.new(0, 10, 0, 85)
+statusLabel.BackgroundTransparency = 1
+statusLabel.Text = "Pressione Z para equipar"
+statusLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+statusLabel.Font = Enum.Font.Gotham
+statusLabel.TextSize = 12
+statusLabel.TextXAlignment = Enum.TextXAlignment.Left
+statusLabel.Parent = mainFrame
+
+-- Variável para controle de minimizado
+local minimized = false
+local originalSize = mainFrame.Size
+local originalPosition = mainFrame.Position
+
+-- Função para minimizar/restaurar
+local function toggleMinimize()
+    minimized = not minimized
+    if minimized then
+        mainFrame.Size = UDim2.new(0, 200, 0, 25)
+        toggleButton.Visible = false
+        statusLabel.Visible = false
+        minimizeButton.Text = "□"
+    else
+        mainFrame.Size = originalSize
+        toggleButton.Visible = true
+        statusLabel.Visible = true
+        minimizeButton.Text = "_"
+    end
+end
+
+-- Função para atualizar o botão de toggle
+local function updateToggleButton()
+    if scriptPausado then
+        toggleButton.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+        toggleButton.Text = "SCRIPT PAUSADO"
+        statusLabel.Text = "Script pausado - Clique para retomar"
+    else
+        toggleButton.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+        toggleButton.Text = "SCRIPT ATIVO"
+        statusLabel.Text = "Pressione Z para equipar"
+    end
+end
+
+-- Conectar os botões
+minimizeButton.MouseButton1Click:Connect(toggleMinimize)
+
+toggleButton.MouseButton1Click:Connect(function()
+    scriptPausado = not scriptPausado
+    updateToggleButton()
+    
+    if not scriptPausado then
+        -- Se estiver retomando, equipar as armas
+        equipSelectedWeapons()
+    end
+end)
+
+-- Função para equipar duas armas
+function equipDualWeapons(tool1, tool2)
+    if tool1 and tool2 and not scriptPausado then
+        -- Equipar primeira arma
+        LocalPlayer.Character.Humanoid:EquipTool(tool1)
+        wait(0.1)
+        -- Equipar segunda arma
+        LocalPlayer.Character.Humanoid:EquipTool(tool2)
+    end
+end
+
+-- Função para encontrar armas selecionadas no inventário
+function findSelectedWeapons()
+    local backpack = LocalPlayer.Backpack
+    local selectedTools = {}
+    
+    for _, weaponName in pairs(WEAPON_SELECTION) do
+        local weapon = backpack:FindFirstChild(weaponName)
+        if weapon and weapon:IsA("Tool") then
+            table.insert(selectedTools, weapon)
+        end
+    end
+    
+    return selectedTools
+end
+
+-- Comando para equipar armas selecionadas
+function equipSelectedWeapons()
+    if scriptPausado then return end
+    
+    local selectedWeapons = findSelectedWeapons()
+    
+    if #selectedWeapons >= 2 then
+        equipDualWeapons(selectedWeapons[1], selectedWeapons[2])
+        statusLabel.Text = "Armas equipadas: " .. selectedWeapons[1].Name .. " + " .. selectedWeapons[2].Name
+        print("Armas selecionadas equipadas: " .. selectedWeapons[1].Name .. " e " .. selectedWeapons[2].Name)
+    else
+        statusLabel.Text = "Armas selecionadas não encontradas"
+        print("Não foi possível encontrar as armas selecionadas no inventário")
+    end
+end
+
+-- Auto-equipar quando pegar novas armas (apenas as selecionadas)
+LocalPlayer.Backpack.ChildAdded:Connect(function(tool)
+    if tool:IsA("Tool") and not scriptPausado then
+        wait(1) -- Esperar um pouco antes de tentar equipar
+        local selectedWeapons = findSelectedWeapons()
+        if #selectedWeapons >= 2 then
+            equipSelectedWeapons()
+        end
+    end
+end)
+
+-- Bind para equipar armas selecionadas (pressione Z)
+Mouse.KeyDown:Connect(function(key)
+    if key == "z" then
+        equipSelectedWeapons()
+    end
+end)
+
+-- Script para manter as duas armas selecionadas equipadas
+while true do
+    wait(0.5)
+    if LocalPlayer.Character and not scriptPausado then
+        local equippedTools = {}
+        
+        -- Verificar ferramentas equipadas
+        for _, tool in pairs(LocalPlayer.Character:GetChildren()) do
+            if tool:IsA("Tool") then
+                table.insert(equippedTools, tool)
+            end
+        end
+        
+        -- Se tiver apenas uma arma equipada, tentar equipar outra das selecionadas
+        if #equippedTools == 1 then
+            local selectedWeapons = findSelectedWeapons()
+            for _, weapon in pairs(selectedWeapons) do
+                if weapon ~= equippedTools[1] then
+                    LocalPlayer.Character.Humanoid:EquipTool(weapon)
+                    break
+                end
+            end
+        end
+        
+        -- Se não tiver nenhuma arma equipada, equipar as selecionadas
+        if #equippedTools == 0 then
+            local selectedWeapons = findSelectedWeapons()
+            if #selectedWeapons >= 2 then
+                equipSelectedWeapons()
+            end
+        end
+    end
+end
+
+print("Script de duas armas carregado! Pressione Z para equipar as armas selecionadas.")
 end)
 -- Função para fechar a GUI
 CloseButton.MouseButton1Click:Connect(function()
