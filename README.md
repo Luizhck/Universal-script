@@ -333,25 +333,7 @@ end)
 createButton(helperTab, "Dex Explorer", function()
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Dex-Explorer-for-Mobile-32019"))()
 end)
-
--- Conteúdo da aba Players
-createButton(playerTab, "Rodiar Player", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-Ilussion-67260"))()
-end)
-
-createButton(playerTab, "Invisível", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Invisible-script-v2-64306"))()
-end)
-createButton(playerTab, "Eps Health", function()
-   local View = workspace.dom_gi.Humanoid
-while true do
-wait(0)
- View.HealthDisplayDistance = 500
-end
-end)
-createButton(playerTab, "fps +90", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Luizhck/Fps-booster/refs/heads/main/README.md"))()
-    createButton(playerTab, "fps +90", function()
+createButton(helperTab, "Combo guns", function()
     -- Script para segurar duas armas no Prison Life
 -- Coloque no Auto Execute do seu executor
 
@@ -579,6 +561,26 @@ end
 
 print("Script de duas armas carregado! Pressione Z para equipar as armas selecionadas.")
 end)
+-- Conteúdo da aba Players
+createButton(playerTab, "Rodiar Player", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-Ilussion-67260"))()
+end)
+
+createButton(playerTab, "Invisível", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Invisible-script-v2-64306"))()
+end)
+createButton(playerTab, "Eps Health", function()
+   local View = workspace.dom_gi.Humanoid
+while true do
+wait(0)
+ View.HealthDisplayDistance = 500
+end
+end)
+createButton(playerTab, "fps +90", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Luizhck/Fps-booster/refs/heads/main/README.md"))()
+end)
+
+
 -- Função para fechar a GUI
 CloseButton.MouseButton1Click:Connect(function()
     ScreenGui:Destroy()
